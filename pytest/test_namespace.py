@@ -1,6 +1,7 @@
 import kubernetes
+import pytest
 
-
+@pytest.first
 def test_create(namespace):
     '''should create a namespace, read it and confirm it exists'''
     client = kubernetes.client.CoreV1Api()
@@ -15,6 +16,7 @@ def test_empty(namespace):
     client = kubernetes.client.CoreV1Api()
     pass
 
+@pytest.last
 def test_delete(namespace):
     '''should delete a namespace then read it to confirm it cannot be read'''
     client = kubernetes.client.CoreV1Api()
