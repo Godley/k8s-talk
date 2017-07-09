@@ -1,5 +1,5 @@
 # k8s-talk
-Code/exercises for my k8s talk
+Code/exercises for my k8s talk. Relies heavily on the [official k8s python library](https://github.com/kubernetes-incubator/client-python)
 
 ## pytest
 Pytest folder contains stub tests intended to be ran using pytest. Where possible there's hints given on what routes to follow
