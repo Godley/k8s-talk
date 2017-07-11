@@ -15,3 +15,6 @@ spec:
       containers:
       - name: app
         image: app:v1
+---
+apiVersion: v1beta1
+kind: ClusterRole
