@@ -15,6 +15,29 @@ spec:
       containers:
       - name: app
         image: app:v1
+  serviceAccountName: myapp
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: myapp
+  namespace: myapp
 ---
 apiVersion: v1beta1
 kind: ClusterRole
+metadata:
+  name: myapp
+rules:
+- apiVersion:
+  - ""
+  resources:
+  - namespace
+  verbs:
+  - get
+  - create
+  - delete
+---
+apiVersion: v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: myapp
