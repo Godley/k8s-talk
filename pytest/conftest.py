@@ -20,7 +20,13 @@ def deployment():
         metadata=client.V1ObjectMeta(name="helloworld",
                                      namespace="helloworld",
                                      labels={"app": "helloworld"}
-                                     )
+                                     ),
+        spec=client.AppsV1beta1DeploymentSpec(
+            template=client.V1PodTemplateSpec(
+                metadata=client.V1ObjectMeta(labels={"app": "helloworld"})
+
+            )
+        )
     )
 
 
