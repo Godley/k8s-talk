@@ -14,7 +14,7 @@ def test_scheduled(deployment, namespace):
     client = kubernetes.client.CoreV1Api()
     w = kubernetes.watch.Watch()
     for event in w.stream(client.list_namespaced_pod, namespace.metadata.name,
-                          labels=deployment.spec.template.metadata.labels,
+                          selector=deployment.spec.template.metadata.labels,
                           _request_timeout=60):
         pass
 
@@ -24,7 +24,7 @@ def test_running(deployment, namespace):
     client = kubernetes.client.CoreV1Api()
     w = kubernetes.watch.Watch()
     for event in w.stream(client.list_namespaced_pod, namespace.metadata.name,
-                          labels=deployment.spec.template.metadata.labels,
+                          selector=deployment.spec.template.metadata.labels,
                           _request_timeout=60):
         pass
 

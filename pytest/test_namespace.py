@@ -20,3 +20,4 @@ def test_empty(namespace):
 def test_delete(namespace):
     '''should delete a namespace then read it to confirm it cannot be read'''
     client = kubernetes.client.CoreV1Api()
+    client.delete_namespace(namespace.metadata.name, kubernetes.client.V1DeleteOptions())
